@@ -26,12 +26,13 @@ const editProviders = (req, res) => {
   const edit = req.body;
   res.status(200).send({
     message: `proveedor actualizado: ${edit.provider}`,
+    provider: { edit },
   });
 };
 
 // DELETE
 const deleteProviders = (req, res) => {
-  res.status(200).send("Producto borrado!. Has borrado:" + req.params.id);
+  res.status(200).send("Producto borrado!. Has borrado:" + req.params.title);
 };
 
 const providersController = {

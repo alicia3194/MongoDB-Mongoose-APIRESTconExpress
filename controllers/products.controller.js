@@ -28,18 +28,20 @@ const getProduct = async (req, res) => {
   }
 };
 
-// UPATE
 const editProduct = (req, res) => {
-  const editP = req.body;
-  res.status(200).send({
-    message: `producto actualizado: ${editP.company_name}`,
+  let editProduct = req.body;
+  res.status(200).json({
+    message: `producto actualizado: ${editProduct.company_name}`,
+    product: { editProduct },
   });
 };
+
 // DELETE
 const deleteProduct = (req, res) => {
-  res.status(200).send("Producto borrado!. Has borrado:" + req.params.title);
+  res
+    .status(200)
+    .json({ message: `Se ha borrado el proveedor: ${req.param.company_name}` });
 };
-
 const productController = {
   createProduct,
   getProduct,
